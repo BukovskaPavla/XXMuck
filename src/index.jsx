@@ -19,26 +19,17 @@ const Polozky = ({polozka}) => {
   return (
     <>
       {polozka.map((polozkaSeznamu) => (
+      <Link to="/product" >
       <div key={polozkaSeznamu.id} onClick={handleClick}>
         <img src={polozkaSeznamu.image}></img>
         <h2>{polozkaSeznamu.name}</h2>
-      </div>))}
+      </div>
+      </Link>))}
     </>
   )
 }
 
-const handleClick = (e) => {
-  e.preventDefault()
-  console.log("klikas na produkt")
-  return (
-    <>
-    <Navigate to="/product" replace={true} />
-    {console.log("jsem na produktove strance, ale nic se nedeje")}
-    
-    <h1>Tak co uz</h1>
-    {ProductPage}
-    </>
-  )
+const handleClick = () => {
 }
 
 const ProductPage = () => {
@@ -48,9 +39,6 @@ const ProductPage = () => {
     </>
   )
 }
-
-
-
 
 const App = () => {
   const [produkt, setProdukt] = useState([])
