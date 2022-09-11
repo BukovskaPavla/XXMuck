@@ -1,44 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import {BrowserRouter, Routes, Route, Link, Navigate} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './style.css';
-
-
-const HomePage = ({produkt}) => {
-  return (
-    <>
-      <h1>Aktuální nabídka</h1>
-      <p>Nejnovějčí prémiové prodkty od předních českých designerů.</p>
-      <p>Doprava zdarma až k vám domů, na cenu nehleďte.</p>
-      {<Polozky polozka={produkt}/>}
-    </>
-  )
-}
-
-const Polozky = ({polozka}) => {
-  return (
-    <>
-      {polozka.map((polozkaSeznamu) => (
-      <Link to="/product" >
-      <div key={polozkaSeznamu.id} onClick={handleClick}>
-        <img src={polozkaSeznamu.image}></img>
-        <h2>{polozkaSeznamu.name}</h2>
-      </div>
-      </Link>))}
-    </>
-  )
-}
-
-const handleClick = () => {
-}
-
-const ProductPage = () => {
-  return (
-    <>
-      <h2>Produktova stranka</h2>
-    </>
-  )
-}
+import { ProductPage } from './components/ProductPage';
+import { HomePage } from './components/HomePage';
 
 const App = () => {
   const [produkt, setProdukt] = useState([])
