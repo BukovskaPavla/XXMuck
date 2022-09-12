@@ -22,7 +22,8 @@ const App = () => {
       <header>XXXMuck</header>
       <Routes>
           <Route path="/" element={<HomePage produkt={produkt} /> }/>
-          <Route path="/product" element={<ProductPage /> }/>
+          <Route path="/product" element={<ProductPage produkt={produkt}/> }/>
+          <Route path="/product/:id" element={<ProductPage produkt={produkt}/>}/>
       </Routes>
     </BrowserRouter>
     </>

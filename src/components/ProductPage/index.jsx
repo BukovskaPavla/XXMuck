@@ -1,9 +1,20 @@
 import React from "react"
+import { useParams } from "react-router-dom"
 
-export const ProductPage = () => {
+export const ProductPage = ({produkt}) => {
+  const { id } =useParams()
+
     return (
-      <>
-        <h2>Produktova stranka</h2>
+      <>   
+        {produkt
+          .filter((polozkaSeznamu) => polozkaSeznamu.id === id)
+          .map((polozkaSeznamu) => (
+            <div key={polozkaSeznamu.id}>
+              <img src={polozkaSeznamu.image}></img>
+              <h2>{polozkaSeznamu.name}</h2>
+              <button>Objednat</button>
+            </div>
+        ))}
       </>
     )
 }
